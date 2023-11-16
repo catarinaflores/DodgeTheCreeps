@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgrl0mnxo2e03"]
+
+[ext_resource type="PackedScene" uid="uid://bt43q02nta0g5" path="res://mob.tscn" id="1_y744k"]
+[ext_resource type="Script" path="res://mob_3.gd" id="2_kniqs"]
+
+[node name="Mob3" instance=ExtResource("1_y744k")]
+script = ExtResource("2_kniqs")
