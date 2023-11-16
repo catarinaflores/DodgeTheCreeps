@@ -6,6 +6,12 @@ func _ready() -> void:
 	animated_sprite_2d.play("fly")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func spawn(spawn_pos: Vector2, spawn_rot: float) -> void:
+	super(spawn_pos, spawn_rot)
+	var og_velocity = linear_velocity
+	
+	await get_tree().create_timer(1.0).timeout
+	linear_velocity = linear_velocity*0
+	
+	await get_tree().create_timer(1.0).timeout
+	linear_velocity = og_velocity
