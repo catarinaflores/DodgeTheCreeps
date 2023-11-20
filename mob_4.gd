@@ -5,6 +5,9 @@ extends "res://mob.gd"
 func _ready() -> void:
 	animated_sprite_2d.play("fly")
 
+func spawn(spawn_pos: Vector2, spawn_rot: float) -> void:
+	super(spawn_pos, spawn_rot)
+	disappear()
 
 func disappear() -> void:
 	animated_sprite_2d.modulate.a = 0
