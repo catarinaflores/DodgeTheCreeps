@@ -6,6 +6,9 @@ func _ready() -> void:
 	animated_sprite_2d.play("fly")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func disappear() -> void:
+	animated_sprite_2d.modulate.a = 0
+	var tween = get_tree().create_tween()
+	tween.tween_property(animated_sprite_2d, "modulate:a", 1, 1)
+	tween.tween_property(animated_sprite_2d, "modulate:a", 0, 1)
+	tween.set_loops()
