@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddvgwetlg43d6"]
+[gd_scene load_steps=3 format=3 uid="uid://ddvgwetlg43d6"]
 
+[ext_resource type="Script" path="res://pause_screen.gd" id="1_agrq4"]
 [ext_resource type="FontFile" uid="uid://8u0d0bpoe1wf" path="res://fonts/Xolonium-Regular.ttf" id="1_kg21i"]
 
 [node name="PauseScreen" type="CanvasLayer"]
+script = ExtResource("1_agrq4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -29,23 +31,27 @@ size_flags_vertical = 4
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Resume" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_kg21i")
 theme_override_font_sizes/font_size = 64
 text = "Resume"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Restart" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_kg21i")
 theme_override_font_sizes/font_size = 64
 text = "Restart"
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_kg21i")
 theme_override_font_sizes/font_size = 64
 text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -12,6 +12,7 @@ var score: int
 @onready var hud: CanvasLayer = %HUD
 @onready var game_over_music: AudioStreamPlayer2D = %GameOverMusic
 @onready var background_music: AudioStreamPlayer2D = %BackgroundMusic
+@onready var pause_screen: CanvasLayer = %PauseScreen
 
 
 
@@ -61,4 +62,9 @@ func _on_mob_timer_timeout() -> void:
 	# mob.rotation = direction
 	# var velocity = Vector2(randf_range(150.0, 250.0), 0)
 	# mob.linear_velocity = velocity.rotated(direction)
-
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = true
+		pause_screen.show()
+	
