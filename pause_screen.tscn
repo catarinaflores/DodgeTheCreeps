@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddvgwetlg43d6"]
+[gd_scene load_steps=5 format=3 uid="uid://ddvgwetlg43d6"]
 
 [ext_resource type="Script" path="res://pause_screen.gd" id="1_agrq4"]
 [ext_resource type="FontFile" uid="uid://8u0d0bpoe1wf" path="res://fonts/Xolonium-Regular.ttf" id="1_kg21i"]
+[ext_resource type="Texture2D" uid="uid://r4k4h1xvajdw" path="res://dodge_the_creeps_assets/dodge_the_creeps_2d_assets/art/music.png" id="3_6obwc"]
+[ext_resource type="Texture2D" uid="uid://cka8s8tx736nq" path="res://dodge_the_creeps_assets/dodge_the_creeps_2d_assets/art/music-off.png" id="4_u5y24"]
 
 [node name="PauseScreen" type="CanvasLayer"]
 process_mode = 3
@@ -52,6 +54,40 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_kg21i")
 theme_override_font_sizes/font_size = 64
 text = "Quit"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SoundOn" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/SoundOn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6obwc")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SoundOff" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/SoundOff"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_u5y24")
+expand_mode = 3
+stretch_mode = 5
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
