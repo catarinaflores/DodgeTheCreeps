@@ -1,5 +1,7 @@
 extends CanvasLayer
-
+signal restart
+signal music_on
+signal music_off
 
 
 func _on_resume_pressed() -> void:
@@ -11,8 +13,18 @@ func _on_resume_pressed() -> void:
 func _on_restart_pressed() -> void:
 	hide()
 	get_tree().paused = false
-	get_tree().main.new_game()
+	# nunca fazer isto get_tree().main.new_game()
+	restart.emit()
 
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+
+func _on_sound_on_pressed() -> void:
+	music_on.emit()
+
+
+func _on_sound_off_pressed() -> void:
+	music_off.emit()

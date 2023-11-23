@@ -63,8 +63,18 @@ func _on_mob_timer_timeout() -> void:
 	# var velocity = Vector2(randf_range(150.0, 250.0), 0)
 	# mob.linear_velocity = velocity.rotated(direction)
 	
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = true
 		pause_screen.show()
 	
+
+func _on_pause_screen_restart() -> void:
+	game_over()
+
+
+func _on_pause_screen_music_on() -> void:
+	background_music.play()
+
+func _on_pause_screen_music_off() -> void:
+	background_music.stop()

@@ -92,3 +92,5 @@ stretch_mode = 5
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/SoundOn" to="." method="_on_sound_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/SoundOff" to="." method="_on_sound_off_pressed"]
