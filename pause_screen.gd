@@ -4,9 +4,8 @@ extends CanvasLayer
 
 func _on_resume_pressed() -> void:
 	hide()
-	await get_tree().create_timer(3.0)
+	await get_tree().create_timer(3.0).timeout
 	get_tree().paused = false
-	
 
 
 func _on_restart_pressed() -> void:
