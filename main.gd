@@ -92,8 +92,3 @@ func _on_pause_screen_music_on() -> void:
 func _on_pause_screen_music_off() -> void:
 	hud.background_music.stop()
 
-
-func _on_power_up_2_double_score() -> void:
-	get_tree().create_timer(10)
-	score = score*2
-	hud.update_score(score)
