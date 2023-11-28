@@ -48,7 +48,7 @@ func _on_start_timer_timeout() -> void:
 
 
 func _on_score_timer_timeout() -> void:
-	score += 1
+	score += GameManager.score
 	hud.update_score(score)
 
 
