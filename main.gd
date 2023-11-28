@@ -38,6 +38,7 @@ func new_game() -> void:
 	hud.update_score(score)
 	hud.show_message("Get Ready")
 	get_tree().call_group("mob", "queue_free")
+	get_tree().call_group("powerups", "queue_free")
 	power_up_timer.start()
 
 

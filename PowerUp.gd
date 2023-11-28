@@ -2,8 +2,9 @@ extends Area2D
 
 
 func _ready() -> void:
-	pass
+	powerup_gone()
 
 
-func _process(delta: float) -> void:
-	pass
+func powerup_gone() -> void:
+	await get_tree().create_timer(4).timeout
+	queue_free()

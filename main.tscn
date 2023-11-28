@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ddvgwetlg43d6" path="res://pause_screen.tscn" id="9_tg6nb"]
 
 [sub_resource type="Gradient" id="Gradient_rb0y2"]
-colors = PackedColorArray(0.894118, 0.0862745, 0.309804, 1, 0.129412, 0.184314, 0.333333, 1)
+colors = PackedColorArray(0.894118, 0.470588, 0.737255, 1, 0.129412, 0.184314, 0.333333, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vbk22"]
 gradient = SubResource("Gradient_rb0y2")
