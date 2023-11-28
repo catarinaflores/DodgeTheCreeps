@@ -14,8 +14,7 @@ var score: int
 @onready var game_over_music: AudioStreamPlayer2D = %GameOverMusic
 @onready var background_music: AudioStreamPlayer2D = %BackgroundMusic
 @onready var pause_screen: CanvasLayer = %PauseScreen
-
-
+@onready var power_up_timer: Timer = %PowerUpTimer
 
 
 
@@ -30,7 +29,7 @@ func game_over() -> void:
 	hud.show_game_over()
 	hud.background_music.stop()
 	hud.game_over_music.play()
-
+	power_up_timer.start()
 
 func new_game() -> void:
 	score = 0
@@ -39,7 +38,7 @@ func new_game() -> void:
 	hud.update_score(score)
 	hud.show_message("Get Ready")
 	get_tree().call_group("mob", "queue_free")
-
+	power_up_timer.start()
 
 
 func _on_start_timer_timeout() -> void:
@@ -75,6 +74,7 @@ func _on_power_up_timer_timeout() -> void:
 	var _powerup_spawn_location = Vector2(randi_range(0, get_viewport().size.x),\
 	randi_range(0, get_viewport().size.y))
 	powerup.global_position = _powerup_spawn_location
+
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):

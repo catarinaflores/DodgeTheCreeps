@@ -53,6 +53,7 @@ one_shot = true
 
 [node name="PowerUpTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 0.5
 
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true

@@ -1,7 +1,6 @@
-extends RigidBody2D
+extends Area2D
 
 
-
-func _on_body_entered(body: Node) -> void:
-	get_tree().call_group("mob", "queue_free")
-	queue_free()
+func spawn(position: Vector2) -> void:
+	position = Vector2(randi_range(0, get_viewport().size.x),\
+	randi_range(0, get_viewport().size.y))
