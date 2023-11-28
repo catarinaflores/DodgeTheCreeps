@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwqgu45aoayuv"]
+[gd_scene load_steps=14 format=3 uid="uid://bwqgu45aoayuv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5vqbo"]
 [ext_resource type="PackedScene" uid="uid://cod53qy8r73ec" path="res://player.tscn" id="1_vftuc"]
@@ -7,10 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://dux0ntxsvlfv3" path="res://hud.tscn" id="4_7qu6t"]
 [ext_resource type="PackedScene" uid="uid://dgrl0mnxo2e03" path="res://mob_3.tscn" id="4_m5nxx"]
 [ext_resource type="PackedScene" uid="uid://bey3bvt6fpikk" path="res://mob_4.tscn" id="5_pobki"]
+[ext_resource type="PackedScene" uid="uid://dqw6wcau1abx4" path="res://power_up.tscn" id="6_tlfrt"]
+[ext_resource type="PackedScene" uid="uid://bti4m6atsonag" path="res://power_up_2.tscn" id="7_qc1g6"]
 [ext_resource type="PackedScene" uid="uid://ddvgwetlg43d6" path="res://pause_screen.tscn" id="9_tg6nb"]
 
 [sub_resource type="Gradient" id="Gradient_rb0y2"]
-colors = PackedColorArray(0.466667, 0.596078, 0, 1, 0.129412, 0.184314, 0.333333, 1)
+colors = PackedColorArray(0.894118, 0.0862745, 0.309804, 1, 0.129412, 0.184314, 0.333333, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vbk22"]
 gradient = SubResource("Gradient_rb0y2")
@@ -27,6 +29,7 @@ point_count = 5
 [node name="Main" type="Node"]
 script = ExtResource("1_5vqbo")
 mob_scene = Array[PackedScene]([ExtResource("2_a13ya"), ExtResource("3_6qb0s"), ExtResource("4_m5nxx"), ExtResource("5_pobki")])
+powerups_scene = Array[PackedScene]([ExtResource("6_tlfrt"), ExtResource("7_qc1g6")])
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -71,6 +74,14 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 visible = false
 
+[node name="PowerUp" parent="." instance=ExtResource("6_tlfrt")]
+unique_name_in_owner = true
+visible = false
+
+[node name="PowerUp2" parent="." instance=ExtResource("7_qc1g6")]
+unique_name_in_owner = true
+visible = false
+
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
@@ -80,3 +91,4 @@ visible = false
 [connection signal="music_off" from="PauseScreen" to="." method="_on_pause_screen_music_off"]
 [connection signal="music_on" from="PauseScreen" to="." method="_on_pause_screen_music_on"]
 [connection signal="restart" from="PauseScreen" to="." method="_on_pause_screen_restart"]
+[connection signal="double_score" from="PowerUp2" to="." method="_on_power_up_2_double_score"]

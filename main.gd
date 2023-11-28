@@ -1,6 +1,7 @@
 extends Node
 
 @export var mob_scene: Array[PackedScene]
+@export var powerups_scene: Array[PackedScene]
 var score: int
 
 @onready var mob_timer: Timer = %MobTimer
@@ -13,6 +14,8 @@ var score: int
 @onready var game_over_music: AudioStreamPlayer2D = %GameOverMusic
 @onready var background_music: AudioStreamPlayer2D = %BackgroundMusic
 @onready var pause_screen: CanvasLayer = %PauseScreen
+
+
 
 
 
@@ -65,8 +68,13 @@ func _on_mob_timer_timeout() -> void:
 
 
 func _on_power_up_timer_timeout() -> void:
-	pass # Replace with function body.
-
+	var powerup: Node2D = powerups_scene.pick_random().instantiate()
+	
+	add_child(powerup)
+	
+	var _powerup_spawn_location = Vector2(randi_range(0, get_viewport().size.x),\
+	randi_range(0, get_viewport().size.y))
+	powerup.global_position = _powerup_spawn_location
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -85,4 +93,7 @@ func _on_pause_screen_music_off() -> void:
 	hud.background_music.stop()
 
 
-
+func _on_power_up_2_double_score() -> void:
+	get_tree().create_timer(10)
+	score = score*2
+	hud.update_score(score)
