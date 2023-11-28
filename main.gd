@@ -62,7 +62,12 @@ func _on_mob_timer_timeout() -> void:
 	# mob.rotation = direction
 	# var velocity = Vector2(randf_range(150.0, 250.0), 0)
 	# mob.linear_velocity = velocity.rotated(direction)
-	
+
+
+func _on_power_up_timer_timeout() -> void:
+	pass # Replace with function body.
+
+
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = true
@@ -78,3 +83,6 @@ func _on_pause_screen_music_on() -> void:
 
 func _on_pause_screen_music_off() -> void:
 	hud.background_music.stop()
+
+
+

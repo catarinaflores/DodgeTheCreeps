@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0j6eugomdx72"]
+
+[ext_resource type="Script" path="res://PowerUp.gd" id="1_gadbo"]
+[ext_resource type="Texture2D" uid="uid://3ydbdbpkr8h0" path="res://art/icons8-poison-48.png" id="2_jwxda"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d3f4k"]
+radius = 15.0
+
+[node name="PowerUp" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_gadbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["powerups"]]
+scale = Vector2(0.708333, 0.708333)
+texture = ExtResource("2_jwxda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d3f4k")

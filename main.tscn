@@ -48,6 +48,9 @@ unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
+[node name="PowerUpTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [node name="StartPosition" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(240, 450)
@@ -71,6 +74,7 @@ visible = false
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="PowerUpTimer" to="." method="_on_power_up_timer_timeout"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 [connection signal="music_off" from="PauseScreen" to="." method="_on_pause_screen_music_off"]
