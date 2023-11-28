@@ -6,6 +6,8 @@ signal start_game
 @onready var message_timer: Timer = %MessageTimer
 @onready var start_button: Button = %StartButton
 @onready var score_label: Label = %ScoreLabel
+@onready var background_music: AudioStreamPlayer2D = %BackgroundMusic
+@onready var game_over_music: AudioStreamPlayer2D = %GameOverMusic
 
 
 func show_message(text: String) -> void:
@@ -37,3 +39,4 @@ func _on_message_timer_timeout() -> void:
 func _on_start_button_pressed() -> void:
 	start_button.hide()
 	start_game.emit()
+	background_music.play()

@@ -25,8 +25,8 @@ func game_over() -> void:
 	mob_timer.stop()
 	score_timer.stop()
 	hud.show_game_over()
-	background_music.stop()
-	game_over_music.play()
+	hud.background_music.stop()
+	hud.game_over_music.play()
 
 
 func new_game() -> void:
@@ -36,7 +36,7 @@ func new_game() -> void:
 	hud.update_score(score)
 	hud.show_message("Get Ready")
 	get_tree().call_group("mob", "queue_free")
-	background_music.play()
+
 
 
 func _on_start_timer_timeout() -> void:
@@ -74,7 +74,7 @@ func _on_pause_screen_restart() -> void:
 
 
 func _on_pause_screen_music_on() -> void:
-	background_music.play()
+	hud.background_music.play()
 
 func _on_pause_screen_music_off() -> void:
-	background_music.stop()
+	hud.background_music.stop()
