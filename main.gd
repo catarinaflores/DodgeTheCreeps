@@ -70,7 +70,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	
 
 func _on_pause_screen_restart() -> void:
-	game_over()
+	new_game()
 
 
 func _on_pause_screen_music_on() -> void:
